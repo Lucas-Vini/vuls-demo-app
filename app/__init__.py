@@ -2,7 +2,6 @@ from flask import Flask
 from app.interfaces.ping import ping
 
 
-
 ACTIVE_ENDPOINTS = (
 	("/", ping),
 	)
