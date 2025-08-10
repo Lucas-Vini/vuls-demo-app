@@ -1,5 +1,5 @@
 from flask import Flask
-from app.interfaces.ping import ping
+from app.interfaces.http.controllers.ping_controller import ping
 
 
 ACTIVE_ENDPOINTS = (
