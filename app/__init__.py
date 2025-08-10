@@ -1,9 +1,11 @@
 from flask import Flask
 from app.interfaces.http.controllers.ping_controller import ping
+from app.interfaces.http.controllers.user_controller import user
 
 
 ACTIVE_ENDPOINTS = (
 	("/", ping),
+	("/", user)
 	)
 
 def create_app():
