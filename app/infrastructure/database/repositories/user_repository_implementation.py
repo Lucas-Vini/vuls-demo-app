@@ -1,5 +1,6 @@
 from app.infrastructure.database.db import db
 from app.infrastructure.database.models.user import UserModel
+from app.domain.repositories.user_repository import UserRepository
 
 class SqlAlchemyUserRepository(UserRepository):
     def add(self, user: User) -> User:
