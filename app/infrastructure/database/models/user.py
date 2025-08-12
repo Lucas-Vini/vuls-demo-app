@@ -1,5 +1,7 @@
-from app.infrastructure.database import db
+from __future__ import annotations
+from app.infrastructure.database.db import db
 from app.domain.entities.user import User
+
 
 class UserModel(db.Model):
     __tablename__ = "users"
