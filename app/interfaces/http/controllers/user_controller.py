@@ -4,7 +4,7 @@ from app.application.use_cases.create_user import create_user
 
 user = Blueprint("user", __name__)
 
-@user.route("/signup")
+@user.route("/signup", methods=['GET', 'POST'])
 def signup():
 	data = request.get_json() or {}
 	username = data.get("username")
