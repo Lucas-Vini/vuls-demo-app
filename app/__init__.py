@@ -1,6 +1,7 @@
 from flask import Flask
 from app.interfaces.http.controllers.ping_controller import ping
 from app.interfaces.http.controllers.user_controller import user
+from app.infrastructure.database.db import init_db
 
 
 ACTIVE_ENDPOINTS = (
@@ -16,5 +17,7 @@ def create_app():
 
 	for url, blueprint in ACTIVE_ENDPOINTS:
 		app.register_blueprint(blueprint, url_prefix=url)
+
+	init_db(app)
 
 	return app
