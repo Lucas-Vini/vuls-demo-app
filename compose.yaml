@@ -3,3 +3,26 @@ services:
     build: .
     ports:
       - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+
+  db:
+    image: mysql:8.0
+    platform: linux/arm64
+    environment:
+      MYSQL_DATABASE: 'vul_db'
+      MYSQL_USER: 'vul_user'
+      MYSQL_PASSWORD: 'vul_password'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 'vul_root_password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 4s
+      retries: 10
